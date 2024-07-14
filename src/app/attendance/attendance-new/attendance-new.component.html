@@ -1,0 +1,102 @@
+<div class="formmain">
+
+  <div class="formdiv1"></div>
+
+  <div class="formdiv2">
+    <form #atten="ngForm" (ngSubmit)="onSubmit(atten)">
+      <br>
+
+
+      <h1 id="hd1"><b>Marking Attendance</b></h1>
+
+      <br><br><br>
+
+      <div class="form-group">
+
+        <label class="lbl" for="aid">Attendance Id</label>
+        <input type="text" id="aid" class="form-control" [ngModel]="attendanceDetails?.aid" name="aid" #eid="ngModel"placeholder="Auto Generated" disabled>
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">Select Your Name</label><br>
+        <select  id="name" class="form-control" [ngModel]="demoBtnCLicked ? attendances.name : attendanceDetails?.name" name="name"  #name="ngModel" required>
+            <option *ngFor="let customerName of employeeDetails" [value]=customerName.fname>{{customerName.fname}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="lbl" for="date">Date</label>
+        <input type="date" class="form-control" [ngModel]="demoBtnCLicked ? attendances.date : attendanceDetails?.date" name="date" #date="ngModel" required>
+        <span class="help-block" *ngIf="!date.valid && date.touched" style="color: red;font-size: smaller;">Date is required*</span>
+      </div>
+
+
+      <div class="form-group">
+        <label class="lbl" for="des"> Designation </label>
+         <select  id = "des" class="form-control" [ngModel]="demoBtnCLicked ? attendances.des : attendanceDetails?.des" name="des" #des="ngModel" required>
+          <option value="HR-Manager">HR-Manager</option>
+          <option value="Room-Service">Room-Service</option>
+          <option value="Receptionists">Receptionists</option>
+          <option value="Supplier">Supplier</option>
+          <option value="Chef">Chef</option>
+          <option value="Waiter/waitress">Waiter/waitress</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+
+        <br>
+        <div class="lbl">
+          <label for="sta">Stataus</label><br>
+          <select id="sta" class="form-control" [ngModel]="demoBtnCLicked ? attendances.sta : attendanceDetails?.sta" name="sta"  #sta="ngModel"  required>
+            <option value="present">present</option>
+            <option value="Absent">Absent</option>
+            <option value="Half Day">Half Day</option>
+            <option value="HoliDay">HoliDay</option>
+          </select>
+      </div>
+      </div>
+
+
+      <div class="form-group">
+
+        <div class="col col-md-6">
+         <label class="lbl" for="atime">Arrival Time</label>
+          <div class= "clock">
+            <div class="clockmini">
+             <input type="time" class="form-control" [ngModel]="demoBtnCLicked ? attendances.atime : attendanceDetails?.atime" name="atime" #atime="ngModel" required>
+             <span class="help-block" *ngIf="!atime.valid && atime.touched" style="font-size: smaller; color: red;">Time is required*</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-md-6">
+          <label class="lbl" for="dtime">Leaveing Time</label>
+           <div class= "clock">
+             <div class="clockmini">
+              <input type="time" class="form-control"  [ngModel]="demoBtnCLicked ? attendances.dtime : attendanceDetails?.dtime" name="dtime" #dtime="ngModel" required>
+              <span class="help-block" *ngIf="!dtime.valid && dtime.touched" style="font-size: smaller; color: red;">Time is required*</span>
+             </div>
+           </div>
+          </div>
+          <br><br><br>
+      </div>
+
+
+      <br><br><br>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!atten.valid">Submit</button>
+      <button  class="btn btn-success" type="button" style="margin-left: 10px;" (click)="fillData()">FILL DATA</button>
+
+      <br><br><br>
+    </form>
+  </div>
+
+<div class="formdiv1"></div>
+
+</div>
+
+
+
+
