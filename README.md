@@ -1,3 +1,14 @@
+# Hotel Management System
+
+### A hotel management System for a hotel in Middeniya, Sri Lanka.
+
+## Group Members (SLIIT "IT Project" subject group members - 2nd year 1st Semester)
+
+### Thushal Kulathileka
+### Rusira Liyanage
+### Kishen Deemad
+### Eishan Dinuka
+
 # ItpHms
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
